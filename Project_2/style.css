@@ -1,0 +1,280 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+
+.background-trees {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url('trees.png') no-repeat center center fixed;
+    background-size: cover;
+    z-index: 2;
+}
+
+.login-container {
+    width: 350px;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    background: #fff;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #850c0c;
+    pointer-events: none;
+}
+
+.input-group input:focus+label,
+.input-group input:valid+label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px 0;
+    background: #850c0c;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.options a.signup {
+    color: #850c0c;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.options a {
+    color: #850c0c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.login-form {
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.falling-leaves {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    /* Higher z-index to be in front of login container */
+}
+
+.leaf {
+    position: absolute;
+    width: 40px;
+    /* Increased size */
+    height: 40px;
+    /* Increased size */
+    background-size: contain;
+    animation: fall linear infinite;
+    top: -10%;
+    /* Start above the viewport */
+}
+
+.leaf1 {
+    background-image: url('leaf_01.png');
+}
+
+.leaf2 {
+    background-image: url('leaf_02.png');
+}
+
+.leaf3 {
+    background-image: url('leaf_03.png');
+}
+
+.leaf4 {
+    background-image: url('leaf_04.png');
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.moving-girl {
+    position: absolute;
+    bottom: 150px;
+    width: 350px;
+    /* Adjust width */
+    height: 350px;
+    /* Maintain aspect ratio */
+    background: url('girl.png') no-repeat center center;
+    background-size: contain;
+    animation: moveGirl 7s linear infinite;
+    z-index: 1;
+    /* Set behind trees */
+}
+
+@keyframes moveGirl {
+    0% {
+        left: -350px;
+        /* Start off-screen to the left */
+        transform: scaleX(1);
+        /* Start facing right */
+    }
+
+    50% {
+        left: 100vw;
+        /* Move off-screen to the right */
+        transform: scaleX(1);
+        /* Maintain facing right */
+    }
+
+    50.1% {
+        left: 100vw;
+        /* Maintain position to switch direction */
+        transform: scaleX(-1);
+        /* Flip to face left */
+    }
+
+    100% {
+        left: -350px;
+        /* Move off-screen to the left */
+        transform: scaleX(-1);
+        /* Maintain facing left */
+    }
+}
+
+/* Define multiple animations with different delays and speeds */
+.leaf:nth-child(1) {
+    animation-duration: 5s;
+    animation-delay: 0s;
+    left: 10%;
+}
+
+.leaf:nth-child(2) {
+    animation-duration: 6s;
+    animation-delay: 0s;
+    left: 20%;
+}
+
+.leaf:nth-child(3) {
+    animation-duration: 7s;
+    animation-delay: 1s;
+    left: 30%;
+}
+
+.leaf:nth-child(4) {
+    animation-duration: 5s;
+    animation-delay: 0s;
+    left: 40%;
+}
+
+.leaf:nth-child(5) {
+    animation-duration: 5s;
+    animation-delay: 1s;
+    left: 50%;
+}
+
+.leaf:nth-child(6) {
+    animation-duration: 4s;
+    animation-delay: 0s;
+    left: 60%;
+}
+
+.leaf:nth-child(7) {
+    animation-duration: 5s;
+    animation-delay: 0s;
+    left: 70%;
+}
+
+.leaf:nth-child(8) {
+    animation-duration: 5s;
+    animation-delay: 0s;
+    left: 80%;
+}
+
+.leaf:nth-child(9) {
+    animation-duration: 5s;
+    animation-delay: 0s;
+    left: 90%;
+}
+
+.leaf:nth-child(10) {
+    animation-duration: 4s;
+    animation-delay: 1s;
+    left: 15%;
+}
